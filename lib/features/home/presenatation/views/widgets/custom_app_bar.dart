@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget {
             AssestData.logo,
             height: 16,
           ),
-          Spacer(),
+         const Spacer(),
           IconButton(
             onPressed: () {},
             icon: const Icon(
