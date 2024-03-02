@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SlidingText extends StatelessWidget {
-  SlidingText({super.key, required this.slidingAnimation, required this.text});
+const SlidingText({super.key, required this.slidingAnimation, required this.text});
 
   final Animation<Offset> slidingAnimation;
   final String text;
@@ -15,7 +15,7 @@ class SlidingText extends StatelessWidget {
             child: Text(
               text,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
           );
         });
