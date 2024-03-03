@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_bookly/features/home/presenatation/views/widgets/best_seller_List_view_item.dart';
+import 'package:my_bookly/features/home/presenatation/views/widgets/best_seller_list_view_item.dart';
 
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({super.key});
@@ -16,7 +16,7 @@ class BestSellerListView extends StatelessWidget {
           child: BestSellerListViewItem(),
         );
       },
-      itemCount: 10,
+      itemCount: 20,
     );
   }
 }
