@@ -33,8 +33,6 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
   get: ^4.6.6
-  google_fonts: ^6.2.0
-  
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -45,7 +43,13 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: assets\fonts\Raleway-Bold.ttf
+    - family: GT Sectra Fine
+      fonts:
+        - asset: assets\fonts\GT Sectra Fine Regular.ttf
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -62,10 +66,6 @@ flutter:
     # "family" key with the font family name, and a "fonts" key with a
     # list giving the asset and other descriptors for the font. For
     # example:
-    # fonts:
-    #   - family: Schyler
-    #     fonts:
-    #       - asset: fonts/Schyler-Regular.ttf
     #       - asset: fonts/Schyler-Italic.ttf
     #         style: italic
     #   - family: Trajan Pro
@@ -76,3 +76,4 @@ flutter:
     #
     # For details regarding fonts from package dependencies,
     # see https://flutter.dev/custom-fonts/#from-packages
+ 
