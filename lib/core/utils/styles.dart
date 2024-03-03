@@ -9,7 +9,6 @@ abstract class Styles {
   static const textStyle20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
-    fontFamily: 'GT Sectra Fine',
   );
 
   static const textStyle30 = TextStyle(
