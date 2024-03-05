@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:my_bookly/constants.dart';
 import 'package:my_bookly/core/utils/app_router.dart';
-import 'package:my_bookly/features/splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(const BooklyApp());
