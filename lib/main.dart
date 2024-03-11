@@ -8,6 +8,7 @@ import 'package:my_bookly/features/home/presenatation/view_models%20(manager)/fe
 import 'package:my_bookly/features/home/presenatation/view_models%20(manager)/newset_books_cubit/newset_books_cubit.dart';
 
 void main() {
+  setupServiceLocator();
   runApp(const BooklyApp());
 }
 
