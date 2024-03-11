@@ -9,8 +9,8 @@ class Failure {
 class ServerFailure extends Failure {
   ServerFailure({required super.errMessage});
 
-  factory ServerFailure.fromDioError(DioException dioError) {
-    switch (dioError.type) {
+  factory ServerFailure.fromDioException(DioException dioException) {
+    switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure(errMessage: 'connection timeout with ApiServer');
       case DioExceptionType.sendTimeout:
@@ -21,11 +21,11 @@ class ServerFailure extends Failure {
         return ServerFailure(errMessage: 'badCertificate  with ApiServer');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioError.response!.statusCode!, dioError.response!.data);
+            dioException.response!.statusCode!, dioException.response!.data);
       case DioExceptionType.cancel:
         return ServerFailure(errMessage: 'request to ApiServer was cancel');
       case DioExceptionType.connectionError:
-        if (dioError.message!.contains('SocketException')) {
+        if (dioException.message!.contains('SocketException')) {
           return ServerFailure(errMessage: 'No Internet Connection');
         } else {
           return ServerFailure(
@@ -41,7 +41,7 @@ class ServerFailure extends Failure {
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(errMessage: response['error']['message']);
+      return ServerFailure(errMessage: response['error']['message'] as String);
     } else if (statusCode == 404) {
       return ServerFailure(
           errMessage: 'Your request not found, Please try again later!');
