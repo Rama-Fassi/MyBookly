@@ -5,17 +5,17 @@ import 'package:my_bookly/features/home/data/repos/home_repo.dart';
 
 part 'featuerd_books_state.dart';
 
-class FeatuerdBooksCubit extends Cubit<FeatuerdBooksState> {
-  FeatuerdBooksCubit(this.homeRepo) : super(FeatuerdBooksInitial());
+class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
+  FeaturedBooksCubit(this.homeRepo) : super(FeaturedBooksInitial());
   final HomeRepo homeRepo;
 
   Future<void> fetchFeaturedBooks() async {
-    emit(FeatuerdBooksLoading());
+    emit(FeaturedBooksLoading());
     var result = await homeRepo.fetchFeaturedBooks();
     result.fold((failure) {
-      emit(FeatuerdBooksFailure(failure.errMessage));
+      emit(FeaturedBooksFailure(failure.errMessage));
     }, (books) {
-      emit(FeatuerdBooksSuccess(books));
+      emit(FeaturedBooksSuccess(books));
     });
   }
 }
