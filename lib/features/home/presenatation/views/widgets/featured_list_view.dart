@@ -4,6 +4,7 @@ import 'package:my_bookly/features/home/presenatation/view_models%20(manager)/fe
 import 'package:my_bookly/features/home/presenatation/views/widgets/custom_book_item.dart';
 import 'package:my_bookly/features/home/presenatation/views/widgets/custom_error_widget.dart';
 import 'package:my_bookly/features/home/presenatation/views/widgets/custom_loading_indicator.dart';
+import 'package:shimmer/shimmer.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
@@ -16,7 +17,7 @@ class FeaturedBooksListView extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .3,
             child: ListView.builder(
-              physics: const BouncingScrollPhysics() ,
+                physics: const BouncingScrollPhysics(),
                 itemCount: state.books.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
