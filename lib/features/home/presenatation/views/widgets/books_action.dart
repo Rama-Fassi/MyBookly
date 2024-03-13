@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:my_bookly/core/widgets/custom_button.dart';
+import 'package:my_bookly/features/home/data/models/book_model/book_model.dart';
 
 class BooksAction extends StatelessWidget {
   const BooksAction({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const Row(
       children: [
         Expanded(
           child: CustomButton(
-            text: '19.99\$',
+            text: 'Free',
             backgroundColor: Colors.white,
             textColor: Colors.black,
             borderRadius: BorderRadius.only(
@@ -20,7 +20,7 @@ class BooksAction extends StatelessWidget {
         Expanded(
           child: CustomButton(
             fonstSize: 20,
-            text: 'Free Preview',
+            text: 'Preview',
             backgroundColor: Color(0xffEF8262),
             textColor: Colors.white,
             borderRadius: BorderRadius.only(
