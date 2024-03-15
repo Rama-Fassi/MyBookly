@@ -7,20 +7,21 @@ import 'package:my_bookly/features/home/presenatation/views/widgets/book_rating.
 import 'package:my_bookly/features/home/presenatation/views/widgets/custom_book_item.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key, this.bookModel});
+  const BookListViewItem({super.key, required this.bookModel});
   final BookModel? bookModel;
   @override
+
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView , extra: bookModel);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 125,
         child: Row(
           children: [
             CustomBookImage(
-                imageUrl: bookModel!.volumeInfo.imageLinks.thumbnail),
+                imageUrl: bookModel!.volumeInfo.imageLinks.thumbnail ),
             /*   AspectRatio(
               aspectRatio: 2.5 / 4,
               child: Container(
@@ -28,7 +29,7 @@ class BookListViewItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   //     color: Colors.red,
                   image: const DecorationImage(
-                    fit: BoxFit.fill,
+                    fit: BoxFit.fill ,
                     image: AssetImage(
                       AssestData.testImage,
                     ),
@@ -46,7 +47,7 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      bookModel!.volumeInfo.title!,
+                      bookModel!.volumeInfo.title! ,
                       style: Styles.textStyle20.copyWith(
                         fontFamily: 'GT Sectra Fine',
                       ),
@@ -71,9 +72,9 @@ class BookListViewItem extends StatelessWidget {
                         'Free',
                         style: Styles.textStyle20,
                       ),
-                     const Spacer(),
+                      const Spacer(),
                       BookRating(
-                        rating: bookModel!.volumeInfo.averageRating ??0,
+                        rating: bookModel!.volumeInfo.averageRating ?? 0,
                         count: bookModel!.volumeInfo.ratingsCount ?? 0,
                       ),
                     ],

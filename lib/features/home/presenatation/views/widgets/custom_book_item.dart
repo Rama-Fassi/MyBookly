@@ -11,6 +11,7 @@ class CustomBookImage extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       child: AspectRatio(
         aspectRatio: 2.7 / 4,
+        
         child: CachedNetworkImage(
           imageUrl: imageUrl,
           fit: BoxFit.fill,

@@ -6,13 +6,17 @@ import 'package:my_bookly/features/home/data/repos/home_repo_impl.dart';
 import 'package:my_bookly/features/home/presenatation/view_models%20(manager)/similar_books_cubit/similar_books_cubit.dart';
 import 'package:my_bookly/features/home/presenatation/views/book_details_view.dart';
 import 'package:my_bookly/features/home/presenatation/views/home_view.dart';
+import 'package:my_bookly/features/search/data/repos/search_repo_impl.dart';
+import 'package:my_bookly/features/search/presentation/view_models/search_result_cubit/search_result_books_cubit.dart';
 import 'package:my_bookly/features/search/presentation/views/search_view.dart';
+import 'package:my_bookly/features/search/presentation/views/widgets/search_result_list_view.dart';
 import 'package:my_bookly/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
   static const kHomeView = '/homeView';
   static const kBookDetailsView = '/bookDetailsView';
   static const kSearchView = '/searchsView';
+  static const kSearchViewResult = '/searchViewResult';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -26,15 +30,26 @@ abstract class AppRouter {
     GoRoute(
       path: kBookDetailsView,
       builder: (context, state) => BlocProvider(
-        create: (context) => SimilarBooksCubit(getIt.get<HomeRepoImpl>(),),
-        child:  BookDetailsView(
+        create: (context) => SimilarBooksCubit(
+          getIt.get<HomeRepoImpl>(),
+        ),
+        child: BookDetailsView(
           bookModel: state.extra as BookModel,
         ),
       ),
     ),
     GoRoute(
       path: kSearchView,
-      builder: (context, state) => const SearchView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => SearchResultCubit(getIt.get<SearchRepoImpl>()),
+        child: const SearchView(),
+      ),
+    ),
+    GoRoute(
+      path: kSearchViewResult,
+      builder: (context, state) => SearchResultListView(
+        bookModel: state.extra as List<BookModel>,
+      ),
     ),
   ]);
 }
